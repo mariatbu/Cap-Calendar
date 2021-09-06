@@ -1,4 +1,4 @@
 export const timerInterface = {
-    setInterval:(functionn, timeInterval)=>{},
-    clearInterval:(intervalID)=>{}
+    setInterval:(handler, timeInterval)=>{this.setInterval(handler, timeInterval).bind(window.setInterval(handler, timeInterval))},
+    clearInterval:(intervalID)=>{this.clearInterval(intervalID).bind(window.clearInterval(intervalID))}
 }
