@@ -1,4 +1,4 @@
 export const timerInterface = {
-    setInterval:(función, intervaloDeTiempo)=>{},
+    setInterval:(functionn, timeInterval)=>{},
     clearInterval:(intervalID)=>{}
 }
