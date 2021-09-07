@@ -1,19 +1,19 @@
 export class DateService {
     static getDayOfMonth(date) {
-        function calendarMonth(fecha) {
+        function calendarMonth(date) {
             let calendar = [];
-            getFirstDayCalendar(fecha);
+            getFirstDayCalendar(date);
             let i = 1;
             for (i = 0; i < 42; i++) {
-                calendar.push(new Date(fecha));
-                fecha.setDate(fecha.getDate() + 1);
+                calendar.push({date:new Date(date),isToday:true,isMonth:true,isSelected:true});
+                date.setDate(date.getDate() + 1);
             }
             return calendar;
         }
 
-        function getFirstDayCalendar(fecha) {
-            fecha.setDate(1);
-            while (fecha.getDay() != 1) { fecha.setDate(fecha.getDate() - 1); }
+        function getFirstDayCalendar(date) {
+            date.setDate(1);
+            while (date.getDay() != 1) { date.setDate(date.getDate() - 1); }
         }
 
     }
