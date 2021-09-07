@@ -1,15 +1,30 @@
 export class FormatService {
+
     static getTimer(date) {
-        return "11:08:33"
+        var options = {hour: 'numeric', minute: 'numeric', second: 'numeric'};
+        return new Intl.DateTimeFormat('es-ES',options).format(date);
     }
+
     static getSystemDate(date){
-        return "lunes, 6 de septiembre de 2021"
+        var options ={weekday:"long",  year: 'numeric', month: 'long', day: 'numeric'};
+        return new Intl.DateTimeFormat('es-ES',options).format(date);
     }
     static getMonth(date){
-        return "septiembre de 2021"
+        var options = { year: 'numeric', month: 'long'};
+        return new Intl.DateTimeFormat('es-ES',options).format(date);
     }
     static getSelected(date){
-        return "today"
+        let today = new Date();
+        if(today.getDate() === date.getDate() & today.getMonth()===date.getMonth() & today.getFullYear() === date.getFullYear()){
+            return "Today";
+        }else{
+            var options = {weekday:'long', day:'numeric'};
+            return new Intl.DateTimeFormat('es-ES',options).format(date);
+        }
     }
+
+    
+    
+
 
 }
