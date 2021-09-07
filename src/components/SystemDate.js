@@ -10,10 +10,9 @@ class SystemDate extends HTMLElement{
             let text = document.createTextNode(FormatService.getSystemDate(date));
             let div = document.createElement('div');
             div.appendChild(text);
-            parent.appendChild(div);
-            
+            parent.appendChild(div);  
         }(this._shadow,new Date()))
-        const slot=document.createElement('slot');
+        const slot = document.createElement('slot');
         this._shadow.appendChild(slot);
     }
     disconnectedCallback(){}
