@@ -1,4 +1,4 @@
-import { PubSub } from "./PubSub.js"
+import pubSub from "./PubSub.js"
 import { INTERVAL, CHANNELS } from "./Config.js"
 import { timerInterface } from "./TimerInterface.js"
 
@@ -20,4 +20,4 @@ class TimerService{
 }
 
 //TODO: va a dar problemas que se instancie cada vez, habría que usar import y export probablemente en el index.html
-export default new TimerService(new PubSub(), timerInterface)
+export default new TimerService(pubSub, timerInterface)
