@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-export class DateService{
-    
-    static getDayOfMonth(date){
-=======
 export class DateService {
     static getDayOfMonth(date) {
         function calendarMonth(date) {
@@ -20,7 +15,6 @@ export class DateService {
             date.setDate(1);
             while (date.getDay() != 1) { date.setDate(date.getDate() - 1); }
         }
->>>>>>> Quinonerodev
 
     }
 
