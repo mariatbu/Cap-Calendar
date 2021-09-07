@@ -30,5 +30,9 @@ export class DateService {
                date.getFullYear() === today.getFullYear();
     }
 
+    static isMonth(date, thisMonth){
+        return date.getMonth() === thisMonth.getMonth() &&
+               date.getFullYear() === thisMonth.getFullYear();
+    }
 
 }
