@@ -7,14 +7,14 @@ class SystemDate extends HTMLElement{
         super();
         this._text = null;
         this.date = new Date();
+    }
+    connectedCallback(){
         this._dispose = pubSub.on(CHANNELS.CHANGEDATE, (date) => {
             this.date = date;
             if(!DateService.isToday(date, new Date())){
                 this._text.data = FormatService.getSystemDate(this.date);
             }
         } )
-    }
-    connectedCallback(){
         const shadow = this.attachShadow({mode:"closed"})
         this._text = document.createTextNode(FormatService.getSystemDate(this.date));
         const div = document.createElement('div');
