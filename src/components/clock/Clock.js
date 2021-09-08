@@ -1,12 +1,14 @@
 import { FormatService } from "../services/FormatService.js";
 import pubSub from "../services/PubSub.js";
 import { CHANNELS } from "../services/Config.js";
+import css from "./clock.css.js"
 
 class Clock extends HTMLElement {
  
     constructor() {
         super();
         this.date = new Date();
+        this._shadow.adoptedStyleSheets = [css];
     }
  
     _formatDate() {
