@@ -1,6 +1,9 @@
-const sheet = CSSStyleSheet();
+const sheet = new CSSStyleSheet();
 sheet.replace(`div{
-    color: white,
-    background-color: darkgrey;
-    font-size: 15rem;
+    color: white;
+    background-color: rgb(70, 70, 70);
+    font-size: 3em;
+    font-family: sans-serif;
 }`)
+
+export default sheet

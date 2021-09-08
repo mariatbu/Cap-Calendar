@@ -1,1 +1,1 @@
-import {DAYSOFWEEK} from "../services/Config.js"
+import {DAYSOFWEEK} from "../../services/Config.js"

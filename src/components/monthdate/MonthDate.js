@@ -1,7 +1,7 @@
-import { FormatService } from "../services/FormatService.js";
-import { DateService } from "../services/DateService.js";
-import pubSub from "../services/PubSub.js";
-import { CHANNELS } from "../services/Config.js";
+import { FormatService } from "../../services/FormatService.js";
+import { DateService } from "../../services/DateService.js";
+import pubSub from "../../services/PubSub.js";
+import { CHANNELS } from "../../services/Config.js";
 
 class MonthDate extends HTMLElement{
     constructor(){
