@@ -1,4 +1,4 @@
 import "./services/TimerService.js";
-import "./components/SystemDate.js";
-import "./components/MonthDate.js";
-import "./components/Clock.js"
+import "./components/systemdate/SystemDate.js";
+import "./components/monthdate/MonthDate.js";
+import "./components/clock/Clock.js"
