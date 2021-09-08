@@ -2,12 +2,16 @@ import { FormatService } from "../../services/FormatService.js";
 import { DateService } from "../../services/DateService.js";
 import pubSub from "../../services/PubSub.js";
 import { CHANNELS } from "../../services/Config.js";
+import css from './monthdate.css.js';
 
 class MonthDate extends HTMLElement{
     constructor(){
         super();
         this._text = null;
         this.date = new Date();
+    }
+    _formatDate() {
+        return FormatService.getMonth(this.date);
     }
     connectedCallback(){
         this._dispose = pubSub.on(CHANNELS.CHANGEDATE, (date) => {
@@ -17,9 +21,10 @@ class MonthDate extends HTMLElement{
             }
         })
         const shadow = this.attachShadow({mode:"closed"})
-        this._text = document.createTextNode(FormatService.getMonth(this.date));
+        const text = document.createTextNode(this._formatDate());
         const div = document.createElement('div');
-        div.appendChild(this._text);
+        shadow.adoptedStyleSheets = [css];
+        div.appendChild(text);
         shadow.appendChild(div);
     }
     disconnectedCallback(){
