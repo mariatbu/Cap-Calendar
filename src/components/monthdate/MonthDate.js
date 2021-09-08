@@ -14,18 +14,18 @@ class MonthDate extends HTMLElement{
         return FormatService.getMonth(this.date);
     }
     connectedCallback(){
-        this._dispose = pubSub.on(CHANNELS.CHANGEDATE, (date) => {
-            this.date = date;
-            if(!DateService.isMonth(date, new Date())){
-                this._text.data = FormatService.getMonth(this.date);
-            }
-        })
         const shadow = this.attachShadow({mode:"closed"})
         const text = document.createTextNode(this._formatDate());
         const div = document.createElement('div');
         shadow.adoptedStyleSheets = [css];
         div.appendChild(text);
         shadow.appendChild(div);
+        this._dispose = pubSub.on(CHANNELS.CHANGEDATE, (date) => {
+            this.date = date;
+            if(!DateService.isMonth(date, new Date())){
+                text.data = this._formatDate();
+            }
+        })
     }
     disconnectedCallback(){
         this._dispose();
