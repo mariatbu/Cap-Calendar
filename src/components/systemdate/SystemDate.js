@@ -3,7 +3,7 @@ import css from './systemdate.css.js';
 import { ComponentDateBase } from "../core/componentDateBase.js";
 import { DateService } from "../../services/DateService.js";
 
-class SystemDate extends ComponentDateBase{
+export class SystemDate extends ComponentDateBase{
 
     _changeDate(value){
         return !this.date || !DateService.isToday(value, this._oldDate);
@@ -18,4 +18,3 @@ class SystemDate extends ComponentDateBase{
     }
 }
 customElements.define('cap-system-date', SystemDate);
-export {SystemDate}

@@ -2,7 +2,7 @@ import { FormatService } from "../../services/FormatService.js";
 import { ComponentDateBase } from "../core/componentDateBase.js";
 import sheet from './clock.css.js';
 
-class Clock extends ComponentDateBase {
+export class Clock extends ComponentDateBase {
  
     _formatDate(){
         return FormatService.getTimer(this.date);
@@ -17,6 +17,5 @@ class Clock extends ComponentDateBase {
     }
 
 }
-window.customElements.define("cap-clock", Clock)
-export {Clock}
+window.customElements.define("cap-clock", Clock);
 

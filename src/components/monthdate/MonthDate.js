@@ -1,35 +1,21 @@
-import { FormatService } from "../../services/FormatService.js";
 import { DateService } from "../../services/DateService.js";
-import pubSub from "../../services/PubSub.js";
-import { CHANNELS } from "../../services/Config.js";
+import { FormatService } from "../../services/FormatService.js";
+import { ComponentDateBase } from "../core/componentDateBase.js";
 import css from './monthdate.css.js';
 
-class MonthDate extends HTMLElement{
-    constructor(){
-        super();
-        this._text = null;
-        this.date = new Date();
-    }
-    _formatDate() {
+export class MonthDate extends ComponentDateBase{
+
+    _formatDate(){
         return FormatService.getMonth(this.date);
     }
-    connectedCallback(){
-        const shadow = this.attachShadow({mode:"closed"})
-        const text = document.createTextNode(this._formatDate());
-        const div = document.createElement('div');
-        shadow.adoptedStyleSheets = [css];
-        div.appendChild(text);
-        shadow.appendChild(div);
-        this._dispose = pubSub.on(CHANNELS.CHANGEDATE, (date) => {
-            this.date = date;
-            if(!DateService.isMonth(date, new Date())){
-                text.data = this._formatDate();
-            }
-        })
+
+    _changeDate(value){
+        return !this.date || !DateService.isMonth(value, this._oldDate);
     }
-    disconnectedCallback(){
-        this._dispose();
+
+    _setStyle(){
+        this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets, css];
     }
+
 }
 customElements.define('cap-month-date', MonthDate);
-export {MonthDate}
