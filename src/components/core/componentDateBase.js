@@ -65,8 +65,8 @@ export class ComponentDateBase extends HTMLElement{
         this._text = document.createTextNode("");
         this._shadow = this.attachShadow({mode: "open"});
         this._shadow.adoptedStyleSheets = [css];
-        this._setStyle();
         if(this._isThereStyle()){
+            this._setStyle();
             this._shadow.appendChild(this._text);
         }
     }
