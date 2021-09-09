@@ -1,5 +1,6 @@
 import {DAYSOFWEEK} from "../../services/Config.js";
 import css from './daysofweek.css.js';
+import cssbase from '../core/componentDateBase.css.js';
 
 export class Daysofweek extends HTMLElement{
     constructor(){
@@ -16,7 +17,7 @@ export class Daysofweek extends HTMLElement{
             const text = document.createTextNode(element);
             div.appendChild(text);
             shadow.appendChild(div);
-            shadow.adoptedStyleSheets = [css];
+            shadow.adoptedStyleSheets = [cssbase, css];
         });
     }
  
