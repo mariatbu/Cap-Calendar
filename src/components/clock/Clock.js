@@ -13,7 +13,7 @@ class Clock extends ComponentDateBase {
     }
 
     _getStyle(){
-        return this._shadow.adoptedStyleSheets = [css];
+        this._shadow.adoptedStyleSheets = [css];
     }
 
 }
