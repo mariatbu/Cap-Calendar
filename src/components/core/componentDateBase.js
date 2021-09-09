@@ -1,6 +1,7 @@
 import pubSub from "../../services/PubSub.js";
 import  {CHANNELS} from "../../services/Config.js";
 const METHOD_NOT_IMPLEMENTED = "Method not implemented";
+import css from './componentDateBase.css.js';
 
 export class ComponentDateBase extends HTMLElement{
 
@@ -9,7 +10,7 @@ export class ComponentDateBase extends HTMLElement{
         this._create();
         this.date = new Date();
         this._oldDate = new Date();
-        this._disposable = [];
+        this._disposables = [];
     }
 
     set date(value){
@@ -33,15 +34,19 @@ export class ComponentDateBase extends HTMLElement{
         this._disposables = [];
     }
 
-    _getStyle() {
-        return document.createElement('style');
-    }
-
     _subscribe(channel = CHANNELS.CHANGEDATE) {
         const dispose = pubSub.on(channel, (date) => {
             this.date = date;
         });
         this._disposables.push(dispose);
+    }
+
+    _setStyle(){
+        throw METHOD_NOT_IMPLEMENTED;
+    }
+
+    _isThereStyle(){
+        return true;
     }
 
     _changeDate(value){
@@ -59,11 +64,11 @@ export class ComponentDateBase extends HTMLElement{
     _create() {
         this._text = document.createTextNode("");
         this._shadow = this.attachShadow({mode: "open"});
-        const style = this._getStyle();
-        if(style) {
-            this._shadow.appendChild(style);
+        this._shadow.adoptedStyleSheets = [css];
+        this._setStyle();
+        if(this._isThereStyle()){
+            this._shadow.appendChild(this._text);
         }
-        this._shadow.appendChild(this._text);
     }
     
 }
