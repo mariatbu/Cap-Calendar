@@ -24,4 +24,15 @@ export class DateService {
 
     }
 
+    static isToday(date, today){
+        return date.getDate()===today.getDate() &&
+               date.getMonth() === today.getMonth() &&
+               date.getFullYear() === today.getFullYear();
+    }
+
+    static isMonth(date, thisMonth){
+        return date.getMonth() === thisMonth.getMonth() &&
+               date.getFullYear() === thisMonth.getFullYear();
+    }
+
 }

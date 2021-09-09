@@ -5,7 +5,3 @@ export const CHANNELS = {
     CHANGEMONTH: 1,
     CHANGESELECDTEDDATE: 2,
 }
-export const BUTTONENUM = Object.freeze({
-    UP: +1,
-    DOWN: -1
-});

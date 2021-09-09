@@ -12,10 +12,10 @@ export class PubSub{
         }
     }
     on(channel, handler){
-        const channelSubscriptors = this._subscriptor.get(channel);
+        let channelSubscriptors = this._subscriptor.get(channel);
         if(!channelSubscriptors){
-            channelSubscriptors = [handle];
-            this._subscriptor.set(channelSubscriptors);
+            channelSubscriptors = [handler];
+            this._subscriptor.set(channel, channelSubscriptors);
         } else {
             channelSubscriptors.push(handler);
         }
