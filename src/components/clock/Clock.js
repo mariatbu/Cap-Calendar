@@ -1,6 +1,6 @@
 import { FormatService } from "../../services/FormatService.js";
 import { ComponentDateBase } from "../core/componentDateBase.js";
-import css from './clock.css.js';
+import sheet from './clock.css.js';
 
 class Clock extends ComponentDateBase {
  
@@ -12,8 +12,8 @@ class Clock extends ComponentDateBase {
         return true;
     }
 
-    _getStyle(){
-        this._shadow.adoptedStyleSheets = [css];
+    _setStyle(){
+        this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets, sheet];
     }
 
 }
