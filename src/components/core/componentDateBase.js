@@ -9,7 +9,7 @@ export class ComponentDateBase extends HTMLElement{
         this._create();
         this.date = new Date();
         this._oldDate = new Date();
-        this._disposable = [];
+        this._disposables = [];
     }
 
     set date(value){
