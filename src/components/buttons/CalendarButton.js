@@ -1,6 +1,7 @@
 import pubSub from "../../services/PubSub.js";
 import { CHANNELS } from "../../services/Config.js";
 import css from './buttons.css.js';
+import cssbase from '../core/componentDateBase.css.js';
 
 const BUTTON = Object.freeze({
     UP: 1,
@@ -53,7 +54,7 @@ export class CalendarButton extends HTMLElement {
     static get observedAttributes() { return ['action']; }
 
     _getStyle(){
-        this._shadow.adoptedStyleSheets = [css];
+        this._shadow.adoptedStyleSheets = [cssbase, css];
     }
 }
 
