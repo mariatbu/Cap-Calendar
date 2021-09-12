@@ -6,4 +6,5 @@ import "./components/daysofweek/daysofweek.js"
 import "./components/core/componentDateBase.js"
 import "./services/FormatService.js"
 import "./components/buttons/CalendarButton.js"
-import "./components/eventdate/eventdate.js"
+import "./components/eventdate/eventdate.js";
+import "./components/gridCalendar/gridCalendar.js";
