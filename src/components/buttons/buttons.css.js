@@ -3,6 +3,7 @@ sheet.replace(`
 :host{
     padding-right: 0.3em;
     background-color: rgb(70,70,70);
+    display: inline-block;
 }
 :host >  button{
     color: white;

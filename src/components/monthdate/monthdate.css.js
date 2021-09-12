@@ -4,6 +4,8 @@ sheet.replace(`
                 color: rgb(230,230,230);
                 padding: 1em 1em;
                 flex-grow: 1;
+                display: inline-block;
+                width: 14em;
                 }
             :host(:hover) {
                 color:white;
