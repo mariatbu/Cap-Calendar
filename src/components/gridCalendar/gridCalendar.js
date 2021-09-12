@@ -71,7 +71,7 @@ class GridCalendar extends HTMLElement{
         }
         this._create();
     }
-    
+
     _removeChildren(){
         this._shadow.textContent="";
     }

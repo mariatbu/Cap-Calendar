@@ -10,6 +10,15 @@ sheet.replace(`:host{
                     grid-template-columns: repeat(7,1em);
                     text-align: center;
                     cursor: default;
+                }
+                :host .isNotMonth{
+                    color: grey;
+                }
+                :host .isToday{
+                    background-color:rgb(127, 178, 240);
+                }
+                :host .selected{
+                    border-color: white;
                 }`
     );
 export default sheet;
