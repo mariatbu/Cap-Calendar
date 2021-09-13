@@ -8,4 +8,3 @@ import "./services/FormatService.js"
 import "./components/buttons/CalendarButton.js"
 import "./components/eventdate/eventdate.js";
 import "./components/gridCalendar/gridCalendar.js";
-import "./components/calendar/calendar.js"
