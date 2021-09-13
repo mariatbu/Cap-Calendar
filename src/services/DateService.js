@@ -1,38 +1,46 @@
 export class DateService {
-    static getDayOfMonth(date) {
+    static getDaysOfMonth(date) {
         function calendarMonth(date) {
             let calendar = [];
-            getFirstDayCalendar(date);
+            const firstDayCalendar = getFirstDayCalendar(date);
             let i = 1;
             for (i = 0; i < 42; i++) {
-                calendar.push({date:new Date(date),isToday:true,isMonth:true,isSelected:true});
-                date.setDate(date.getDate() + 1);
+                let fecha = new Date(firstDayCalendar);
+                calendar.push({ date: fecha, 
+                                isToday: DateService.isToday(firstDayCalendar, new Date()), 
+                                isMonth: DateService.isMonth(firstDayCalendar, date), 
+                                isSelected: false });
+                firstDayCalendar.setDate(firstDayCalendar.getDate() + 1);
             }
             return calendar;
         }
 
         function getFirstDayCalendar(date) {
-            date.setDate(1);
-            while (date.getDay() != 1) { date.setDate(date.getDate() - 1); }
+            let firstDay = new Date(date);
+            firstDay.setDate(1);
+            while (firstDay.getDay() != 1) { 
+                firstDay.setDate(firstDay.getDate() - 1); 
+            }
+            return firstDay;
         }
-
+        return calendarMonth(date);
     }
 
     static addMonth(date, diff) {
         date.setMonth(date.getMonth() + diff)
-        return DateService.getDayOfMonth(date);
+        return DateService.getDaysOfMonth(date);
 
     }
 
-    static isToday(date, today){
-        return date.getDate()===today.getDate() &&
-               date.getMonth() === today.getMonth() &&
-               date.getFullYear() === today.getFullYear();
+    static isToday(date, today) {
+        return date.getDate() === today.getDate() &&
+            date.getMonth() === today.getMonth() &&
+            date.getFullYear() === today.getFullYear();
     }
 
-    static isMonth(date, thisMonth){
+    static isMonth(date, thisMonth) {
         return date.getMonth() === thisMonth.getMonth() &&
-               date.getFullYear() === thisMonth.getFullYear();
+            date.getFullYear() === thisMonth.getFullYear();
     }
 
 }
