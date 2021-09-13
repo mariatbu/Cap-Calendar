@@ -5,6 +5,7 @@ sheet.replace(`:host{
                     font-family: sans-serif;
                     padding: 1rem 1rem 0;
                     display: block;
+                    max-width: 21rem;
             }`
 )
 
