@@ -10,6 +10,7 @@ sheet.replace(`:host{
                     grid-template-columns: repeat(7,1em);
                     text-align: center;
                     cursor: default;
+                    max-width: 19.6rem;
                 }
                 :host > div{
                     height: 1.7em;
@@ -19,6 +20,9 @@ sheet.replace(`:host{
                     border-width: 2px;
                     border-style: solid;
                     border-color: transparent;
+                }
+                :host > div:hover{
+                    border-color: grey;
                 }
                 :host .isNotMonth{
                     color: grey;
