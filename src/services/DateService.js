@@ -27,9 +27,9 @@ export class DateService {
     }
 
     static addMonth(date, diff) {
-        date.setMonth(date.getMonth() + diff)
-        return DateService.getDaysOfMonth(date);
-
+        let newDate = new Date(date);
+        newDate.setMonth(date.getMonth() + diff);
+        return newDate;
     }
 
     static isToday(date, today) {
