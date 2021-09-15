@@ -1,6 +1,7 @@
 import { FormatService } from "../../services/FormatService.js";
 import { ComponentDateBase } from "../core/componentDateBase.js";
 import { CHANNELS } from "../../services/Config.js";
+import css from './eventdate.css.js';
 
 export class EventDate extends ComponentDateBase{
 
@@ -12,9 +13,9 @@ export class EventDate extends ComponentDateBase{
         return document.createElement("style");
     }
 
-
     connectedCallback(){
-        this._subscribe(CHANNELS.CHANGESELECTEDATE);
+        this._subscribe(CHANNELS.CHANGESELECDTEDDATE);
+        this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets, css];
     }
 
     _changeDate(){
