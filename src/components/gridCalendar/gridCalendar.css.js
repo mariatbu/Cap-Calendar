@@ -17,7 +17,8 @@ sheet.replace(`:host{
                     width: 1.7em;
                     justify-content: space-around;
                     display: flex;
-                    border-width: 2px;
+                    align-items: center;
+                    border-width: 0.3em;
                     border-style: solid;
                     border-color: transparent;
                 }
